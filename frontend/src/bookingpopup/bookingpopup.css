@@ -1,0 +1,104 @@
+.bookingPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  .bookingPopup h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .bookingInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .bookingLabel {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+  }
+  
+  .bookingValue {
+    font-size: 16px;
+  }
+  
+  .backButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .backButton svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .comboContainer {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .priceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .priceLabel {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .priceValue {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .confirmButton {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .confirmButton:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 480px) {
+    .bookingPopup {
+      width: 90%;
+    }
+  }
+  

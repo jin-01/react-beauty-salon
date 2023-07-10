@@ -8,6 +8,7 @@ function AddHairstylist() {
     const [data, setData] = useState({
 		name: '',
 		email: '',
+        area: '',
         age: '',
         phone: '',
 		salary: '',
@@ -20,6 +21,7 @@ function AddHairstylist() {
 		const formdata = new FormData();
 		formdata.append("name", data.name);
         formdata.append("email", data.email);
+        formdata.append("area", data.area);
 		formdata.append("age", data.age);
 		formdata.append("phone", data.phone);
 		formdata.append("salary", data.salary);
@@ -44,6 +46,11 @@ function AddHairstylist() {
                     <label for="inputEmail4" class="form-label">Email</label>
                     <input type="email" class="form-control" id="inputEmail4" placeholder='Enter Email' autoComplete='off'
                         onChange={e => setData({ ...data, email: e.target.value })} />
+                </div>
+                <div class="col-12">
+                    <label for="inputEmail4" class="form-label">Area</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder='Enter Area' autoComplete='off'
+                        onChange={e => setData({ ...data, area: e.target.value })} />
                 </div>
                 <div class="col-12">
                     <label for="inputAge" class="form-label">Age</label>

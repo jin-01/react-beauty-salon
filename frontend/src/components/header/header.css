@@ -28,11 +28,11 @@
     gap: 10px;
 }
 
-.headerListItem.active{
+/* .headerListItem.active{
     border: 1.5px solid white;
     padding: 10px;
     border-radius: 20px;
-}
+} */
 
 .headerDesc{
     margin: 20px 0px;

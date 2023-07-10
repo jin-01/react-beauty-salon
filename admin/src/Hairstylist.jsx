@@ -43,6 +43,7 @@ function Hairstylist() {
                             <th>Name</th>
                             <th>Image</th>
                             <th>Email</th>
+                            <th>Area</th>
                             <th>Age</th>
                             <th>Phone</th>
                             <th>Salary</th>
@@ -57,6 +58,7 @@ function Hairstylist() {
                                     <img src={`http://localhost:8088/images/` + hairstylist.image} alt="" className='employee_image' />
                                 }</td>
                                 <td>{hairstylist.email}</td>
+                                <td>{hairstylist.area}</td>
                                 <td>{hairstylist.age}</td>
                                 <td>{hairstylist.phone}</td>
                                 <td>{hairstylist.salary}</td>

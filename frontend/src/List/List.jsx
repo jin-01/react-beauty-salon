@@ -11,73 +11,97 @@ import axios from 'axios';
 function List() {
 
   const location = useLocation();
-  // const { destination, date, options } = location.state;
-
-  // const [searchDestination, setSearchDestination] = useState(destination);
 
 
 
   const [date, setDate] = useState(location.state.date)
   const [openDate, setOpenDate] = useState(false)
   const [destination, setDestination] = useState(location.state.destination)
-
   const [bookings, setBookings] = useState([]);
+  const [message, setMessage] = useState('');
+
 
   useEffect(() => {
-    if (destination) {
-      axios
-        .get('http://localhost:8080/bookings', {
-          params: {
-            destination: destination,
-          },
-        })
-        .then((res) => {
-          setBookings(res.data.Result);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+    if (destination !== '') {
+      if (date) {
+        fetchBookings();
+      } else {
+        setBookings([]);
+        setMessage('Please select a date.');
+      }
+    } else {
+      setBookings([]);
+      setMessage('Please enter an area.');
     }
-  }, [destination]);
-  
+  }, [destination, date]);
 
 
+  const fetchBookings = () => {
+    const formattedDate = formatDate(date); // Format date as YYYY-MM-DD
+    axios
+      .get(`http://localhost:8088/getBookings?area=${destination}&date=${formattedDate}&status=Available`)
+      .then(res => {
+        if (res.data.Status === "Success") {
+          setBookings(res.data.Result);
+          setMessage('');
+        } else if (res.data.Status === "NoResults") {
+          setBookings([]);
+          setMessage('No available bookings found for the selected area and date.');
+        } else {
+          alert("Error");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        alert("Error");
+      });
+  };
 
-
-
+  function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
 
   return (
     <div>
       <Navbar />
-      <Header type="list"  handleSearch={setDestination}/>
+      <Header type="list" />
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listSearch">
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
-              <label>Destination</label>
+              <label>Area:</label>
               <input placeholder={destination} type="text"
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)} />
             </div>
             <div className="lsItem">
-              <label>Check-in Date</label>
+              <label>Booking Date:</label>
               <span onClick={() => setOpenDate(!openDate)} className="headerSearchText">
-                {`${date && date.toLocaleDateString('en-US')}`}
+                {`${date ? formatDate(date) : 'YYYY-MM-DD'}`}
               </span>
-              {openDate && (<Calendar
-                onChange={(item) => setDate(item)}
-                date={date} minDate={new Date()}
-              />
+              {openDate && (
+                <Calendar
+                  onChange={(item) => setDate(item)}
+                  date={date}
+                  minDate={new Date()}
+                />
               )}
             </div>
 
-            {/* <button onClick={handleSearch}>Search</button> */}
+            
           </div>
           <div className="listResult">
-            {/* <BookingList/> */}
-            <BookingList bookings={bookings} />
+            
+            {message !== '' ? (
+              <p className="message">{message}</p>
+            ) : (
+              <BookingList bookings={bookings} />
+            )}
 
           </div>
         </div>

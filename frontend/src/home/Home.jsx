@@ -6,8 +6,12 @@ import MailList from "../components/mailList/MailList"
 import Navbar from "../components/navbar/Navbar"
 import PropertyList from "../components/propertyList/PropertyList"
 import "./home.css"
+import React, { useEffect } from 'react'
+import {useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 function Home() {
+
   return (
     <div>
       <Navbar/>

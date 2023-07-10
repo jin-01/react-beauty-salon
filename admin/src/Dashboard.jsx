@@ -17,7 +17,7 @@ function Dashboard() {
 					// navigate('/employeedetail/'+id)
 				}
 			} else {
-				navigate('/login')
+				navigate('/adminlogin')
 			}
 		})
 	}, [])
@@ -25,7 +25,7 @@ function Dashboard() {
     const handleLogout = () => {
 		axios.get('http://localhost:8088/logout')
 		.then(res => {
-			navigate('/login')
+			navigate('/adminlogin')
 		}).catch(err => console.log(err));
 	}
 
@@ -49,6 +49,22 @@ function Dashboard() {
                     <li>
                         <Link to="/hairstylist" className="nav-link px-0 align-middle text-white">
                             <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Hairstylist</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/getbranch" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Branch</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/booking" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Booking</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/getservices" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Services</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/homeone" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Home One</span> </Link>
                     </li>
                     <li>
                         <a to="profile" className="nav-link px-0 align-middle text-white">

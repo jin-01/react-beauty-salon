@@ -1,40 +1,34 @@
 import "./bookinglist.css"
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import BookingPopup from "../../bookingpopup/BookingPopup";
 
 
-function BookingList() {
 
-  const [data, setData] = useState([])
+function BookingList({ bookings}) {
+  const [selectedBooking, setSelectedBooking] = useState(null);
 
-  useEffect(() => {
-    axios.get('http://localhost:8088/getBooking')
-      .then(res => {
-        if (res.data.Status === "Success") {
-          setData(res.data.Result);
-        } else {
-          alert("Error")
-        }
-      })
-      .catch(err => console.log(err));
-  }, [])
-
-  
+  const handleBookNow = (booking) => {
+    setSelectedBooking(booking);
+  };
+  const handleClosePopup = () => {
+    setSelectedBooking(null);
+  };
 
   return (
     <div>
       {/* Render the booking data */}
-      {data.map(booking => (
+      {bookings.map((booking) => (
 
         <div className="searchItem" key={booking.id}>
           <img src={`http://localhost:8088/images/` + booking.image} alt="" className="siImg" />
           <div className="siDesc">
             <h1 className="siTitle">{booking.name}</h1>
-            <span className="siDistance">{booking.area}</span>
-            <span className="siTaxiOp">{booking.time}</span>
-            <span className="siSubtitle">
+            <span className="siArea">{booking.area}</span>
+            <span className="siHairstylist">Our Hairstylist: {booking.hairstylist}</span>
+            {/* <span className="siSubtitle">
               {booking.shopdesc}
-            </span>
+            </span> */}
             {/* <span className="siFeatures">
               Entire studio 1 bathroom
             </span> */}
@@ -49,13 +43,17 @@ function BookingList() {
               <button>{booking.rating}</button>
             </div>
             <div className="siDetailTexts">
-              <span className="siPrice">{booking.price}</span>
-              <span className="siTaxOp">{booking.tax}</span>
-              <button className="siCheckButton">See availability</button>
+              <span className="siTime">Time: {booking.time}</span>
+              {/* <span className="siBookID">{booking.id}</span> */}
+              <button className="siCheckButton" onClick={() => handleBookNow(booking)}>Book Now</button>
             </div>
           </div>
         </div>
       ))}
+      {/* Render the pop-up if a booking is selected */}
+      {selectedBooking && (
+        <BookingPopup booking={selectedBooking} onClose={handleClosePopup} />
+      )}
     </div>
 
   )
