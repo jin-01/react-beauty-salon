@@ -10,21 +10,42 @@ function HairstylistList() {
     const [data, setData] = useState([]);
     const [searchArea, setSearchArea] = useState("");
     const [areaList, setAreaList] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
+
+    // const handleSearch = () => {
+    //     axios
+    //         .get(`http://localhost:8088/gethairstylistlist?area=${searchArea}`)
+    //         .then((res) => {
+    //             if (res.data.Status === "Success") {
+    //                 setData(res.data.Result);
+    //             } else {
+    //                 alert("Error");
+    //             }
+    //         })
+    //         .catch((err) => console.log(err));
+    // }
 
 
-    const handleSearch = () => {
+    useEffect(() => {
         axios
-            .get(`http://localhost:8088/gethairstylistlist?area=${searchArea}`)
-            .then((res) => {
-                if (res.data.Status === "Success") {
-                    setData(res.data.Result);
-                } else {
-                    alert("Error");
-                }
-            })
-            .catch((err) => console.log(err));
-    }
-
+          .get('http://localhost:8088/gethairstylistlist')
+          .then((res) => {
+            if (res.data.Status === "Success") {
+              setData(res.data.Result);
+            } else {
+              alert("Error");
+            }
+          })
+          .catch((err) => console.log(err));
+        }, []);
+    
+      const handleSearch = () => {
+        const filteredHairstylists = data.filter(
+          (hairstylist) => hairstylist.area === searchArea
+        );
+        setFilteredData(filteredHairstylists);
+      };
+      
     useEffect(() => {
         axios
           .get('http://localhost:8088/gethairstylistareas')
@@ -67,7 +88,7 @@ function HairstylistList() {
 
                     </div>
                     <div className="listResult">
-                        <Hairstylist data={data} />
+                    <Hairstylist data={filteredData.length > 0 ? filteredData : data} />
                     </div>
                 </div>
             </div>

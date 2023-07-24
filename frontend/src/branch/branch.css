@@ -1,0 +1,199 @@
+.bookingList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.searchItem {
+  border: 1px solid lightgray;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.searchItem:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.siImg {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.siDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 2;
+}
+
+.siTitle {
+  font-size: 20px;
+  color: #0071c2;
+}
+
+.siArea {
+  font-size: 18px;
+}
+
+.sibdesc {
+  font-size: 13px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+
+.sibdesc:hover {
+  border-color: #0071c2; /* Change border color on hover */
+}
+
+
+
+.siDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.siRating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.siRating > span {
+  font-weight: 500;
+}
+
+.siRating > button {
+  background-color: #003580;
+  color: white;
+  padding: 5px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.siRating > button:hover {
+  background-color: #005cbf;
+}
+
+.siDetailTexts {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.siTime {
+  font-size: 22px;
+}
+
+.siBookID {
+  font-size: 12px;
+  color: gray;
+}
+
+.siCheckButton {
+  background-color: #0071c2;
+  color: white;
+  font-weight: bold;
+  padding: 10px 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.siCheckButton:hover {
+  background-color: #005cbf;
+}
+
+/* Add these styles to your existing CSS file or create a new one */
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 70%;
+  max-height: 70%;
+  overflow: auto;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+}
+
+.popup-content h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #0071c2;
+}
+
+.popup-content p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.popup-content hr {
+  border: 0.5px solid #ccc;
+  margin: 15px 0;
+}
+
+.no-review-message {
+  font-size: 18px;
+  color: #555;
+  font-style: italic;
+}
+
+.review-item {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-item p {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.review-item span {
+  font-size: 14px;
+  color: #555;
+}

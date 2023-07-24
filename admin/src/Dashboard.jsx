@@ -55,17 +55,50 @@ function Dashboard() {
                             <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Branch</span> </Link>
                     </li>
                     <li>
-                        <Link to="/booking" className="nav-link px-0 align-middle text-white">
-                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Booking</span> </Link>
+                        <Link to="/bookingslot" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Booking Slot</span> </Link>
                     </li>
                     <li>
                         <Link to="/getservices" className="nav-link px-0 align-middle text-white">
                             <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Services</span> </Link>
                     </li>
                     <li>
-                        <Link to="/homeone" className="nav-link px-0 align-middle text-white">
-                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Home One</span> </Link>
+                        <Link to="/user" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage User</span> </Link>
                     </li>
+                    <li>
+                        <Link to="/userbooking" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage User Booking</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/payment" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage User Payment</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/userreview" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage User Review</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/uservoucher" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage User Voucher</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/voucher" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Voucher</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/slideshow" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage SlideShow</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/homebanner" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Home Banner</span> </Link>
+                    </li>
+                    <li>
+                        <Link to="/tophairstylist" className="nav-link px-0 align-middle text-white">
+                            <i className="fs-4 bi-people"></i> <span className="ms-1 d-none d-sm-inline">Manage Top Hairstylist</span> </Link>
+                    </li>
+                    
                     <li>
                         <a to="profile" className="nav-link px-0 align-middle text-white">
                             <i className="fs-4 bi-person"></i> <span className="ms-1 d-none d-sm-inline">Profile</span></a>

@@ -1,0 +1,118 @@
+.profile-container {
+  text-align: center;
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 1024px; /* Set the maximum width to 1024px */
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto; /* Center the card horizontally */
+  width: 400px;
+  animation: cardMove 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  margin-top: 30px;
+}
+
+/* Add media query to adjust the card width on smaller screens */
+@media (max-width: 480px) {
+  .profile-card {
+    width: 100%;
+  }
+}
+
+@keyframes cardMove {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.profile-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.profile-email,
+.profile-phone {
+  margin-bottom: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  align-items: center;
+}
+
+.button-space {
+  width: 10px;
+}
+
+.profile-card:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-card:hover .profile-actions {
+  opacity: 1;
+}
+
+/* Styles for the edit mode */
+.profile-details-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-details-edit input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.profile-details-edit button {
+  padding: 8px 16px;
+
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.profile-details-edit button:hover {
+  background-color: #0056b3;
+}
+
+.btncancel{
+  margin-left: 20px;
+}
+
+.passwordlabel{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

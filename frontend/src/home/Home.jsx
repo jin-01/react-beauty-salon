@@ -1,29 +1,57 @@
-import Featured from "../components/featured/Featured"
-import FeaturedProperties from "../components/featuredProperties/FeaturedProperties"
+
 import Footer from "../components/footer/Footer"
 import Header from "../components/header/Header"
 import MailList from "../components/mailList/MailList"
 import Navbar from "../components/navbar/Navbar"
-import PropertyList from "../components/propertyList/PropertyList"
 import "./home.css"
-import React, { useEffect } from 'react'
-import {useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import ImageSlider from "../components/slider/ImageSlider"
+import HomeFunction from "../homefunction/HomeFunction"
+import TopHairstylist from "../tophairstylist/TopHairstylist"
+import TopBranch from "../topbranch/TopBranch"
+import AboutUs from "../aboutUs/AboutUs"
+import { Element } from 'react-scroll';
+import HomeBanner from "../components/homebanner/HomeBanner"
+
 
 function Home() {
 
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8088/getslideshow')
+      .then(res => {
+        if (res.data.Status === "Success") {
+          setSlides(res.data.Result);
+        } else {
+          alert("Error fetching slideshow data");
+        }
+      })
+      .catch(err => {
+        console.log("Error fetching slideshow data:", err);
+        alert("Error fetching slideshow data");
+      });
+  }, []);
+
   return (
     <div>
-      <Navbar/>
-      <Header/>
+      <Navbar />
+      <Header />
+      <ImageSlider slides={slides} />
       <div className="homeContainer">
-        <Featured/>
-        <h1 className="homeTitle"> Browse by properties type</h1>
-        <PropertyList/>
-        <h1 className="homeTitle"> Home guests love</h1>
-        <FeaturedProperties/>
-        <MailList/>
-        <Footer/>
+        <HomeBanner />
+        <HomeFunction />
+        <h1 className="homeTitle"> Top Hairstylist</h1>
+        <TopHairstylist />
+        <h1 className="homeTitle"> Most Popular Salon</h1>
+        <TopBranch />
+        <Element name="about-us" className="homeTitle"> About Us</Element>
+        <AboutUs />
+        {/* <MailList /> */}
+        <Footer />
+
       </div>
     </div>
   )

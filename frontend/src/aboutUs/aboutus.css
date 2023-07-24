@@ -1,0 +1,82 @@
+.aboutUsPage {
+    background-color: #585656; /* Dark gray background color */
+    width: 100%;
+    min-height: 100vh; /* Ensure the background covers the full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .aboutUsContent {
+    max-width: 1024px;
+    padding: 40px;
+    color: #ffffff; /* White text color for good contrast */
+  }
+  
+  .aboutUsTitle {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  
+  .missionVision {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .mission,
+  .vision {
+    flex-basis: calc(50% - 20px);
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  .mission h2,
+  .vision h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .mission p,
+  .vision p {
+    line-height: 1.6;
+  }
+  
+  .whyChooseUs {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .whyChooseUs h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .whyChooseUsContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .whyChooseUsItem {
+    flex-basis: calc(50% - 20px);
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  
+  .whyChooseUsItem .featureIcon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .whyChooseUsItem .featureTitle {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  

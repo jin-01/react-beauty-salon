@@ -10,19 +10,30 @@ import axios from 'axios';
 
 function List() {
 
+ 
+
+
+
   const location = useLocation();
-
-
-
-  const [date, setDate] = useState(location.state.date)
-  const [openDate, setOpenDate] = useState(false)
-  const [destination, setDestination] = useState(location.state.destination)
+  const [date, setDate] = useState(null);
+  const [openDate, setOpenDate] = useState(false);
+  const [searchArea, setSearchArea] = useState('');
   const [bookings, setBookings] = useState([]);
   const [message, setMessage] = useState('');
 
+  useEffect(() => {
+    // Check if location.state exists and has the expected properties
+    if (location.state && location.state.searchArea || location.state.date) {
+      setSearchArea(location.state.searchArea);
+      setDate(location.state.date);
+    } else {
+      setSearchArea('');
+      setDate(null);
+    }
+  }, [location.state]);
 
   useEffect(() => {
-    if (destination !== '') {
+    if (searchArea !== '') {
       if (date) {
         fetchBookings();
       } else {
@@ -33,13 +44,13 @@ function List() {
       setBookings([]);
       setMessage('Please enter an area.');
     }
-  }, [destination, date]);
+  }, [searchArea, date]);
 
 
   const fetchBookings = () => {
     const formattedDate = formatDate(date); // Format date as YYYY-MM-DD
     axios
-      .get(`http://localhost:8088/getBookings?area=${destination}&date=${formattedDate}&status=Available`)
+      .get(`http://localhost:8088/getBookings?area=${searchArea}&date=${formattedDate}&status=Available`)
       .then(res => {
         if (res.data.Status === "Success") {
           setBookings(res.data.Result);
@@ -75,9 +86,9 @@ function List() {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Area:</label>
-              <input placeholder={destination} type="text"
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)} />
+              <input placeholder={searchArea} type="text"
+                value={searchArea}
+                onChange={(e) => setSearchArea(e.target.value)} />
             </div>
             <div className="lsItem">
               <label>Booking Date:</label>

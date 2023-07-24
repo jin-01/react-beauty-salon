@@ -1,0 +1,30 @@
+.booking-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .booking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Set fixed height for the image container */
+.card-img-top {
+  height: 250px; /* Adjust this value as needed */
+  object-fit: cover; /* Crop or stretch the image to cover the container */
+}
+
+.placeholder-box {
+  border: 2px solid #ccc;
+  width: 100px; /* Adjust the width as per your requirement */
+  height: 100px; /* Set the same value as width to create a square */
+  text-align: center;
+  font-weight: bold;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* This centers the box horizontally */
+
+  height: 250px;
+  width: 100%;
+}

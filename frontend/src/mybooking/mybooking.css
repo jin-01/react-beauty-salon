@@ -1,0 +1,19 @@
+.booking-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .booking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-primary.btn-sm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 200px;
+    margin-right: 100px;
+
+  }
+
+  

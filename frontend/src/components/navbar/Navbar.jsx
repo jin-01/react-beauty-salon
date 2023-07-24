@@ -25,18 +25,19 @@ function Navbar() {
     const handleLogout = () => {
         axios.get('http://localhost:8088/logout')
             .then(res => {
-                navigate('/login')
+                // sessionStorage.clear();
+                window.location.href = '/';
             }).catch(err => console.log(err));
     }
 
     return (
         <div className="navbar">
             <div className="navContainer">
-                <span className="logo">IBooking</span>
+                <span className="logo">Salon GO</span>
                 <div className="navItems">
                     {name ? (
                         <>
-                            <Link to="/login" className="navButton">{name}</Link>
+                            <Link to="/" className="navButton">{name}</Link>
                             <button className="navButton" onClick={handleLogout}>Sign Out</button>
                         </>
                     ) : (

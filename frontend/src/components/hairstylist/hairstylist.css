@@ -43,6 +43,20 @@
   .siArea {
     font-size: 18px;
   }
+  .desc{
+    font-size: 13px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease;
+  }
+
+ 
+
+  .desc:hover {
+    border-color: #0071c2; /* Change border color on hover */
+  }
   
   .siHairstylist {
     font-size: 12px;

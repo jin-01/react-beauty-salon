@@ -13,6 +13,7 @@ function Hairstylist({data}) {
         <div className="siDesc">
           <h1 className="siTitle">{hairstylist.name}</h1>
           <span className="siArea">{hairstylist.area}</span>
+          <span className="desc">Experience: {hairstylist.hdesc}</span>
         </div>
       </div>
     ))}
